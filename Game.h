@@ -1,9 +1,23 @@
 /*
- *Title: Exploding Kittens Card Game
- *Date: 2/22/2017
- *Author: Nick Lawrence and Jeremy Dixon
- *Description: This is the game class for the exploding kittens game
-*/
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/*****************************************
+ ** File:    Game.h
+ ** Project: CMSC 202 Project_2, Spring 2017
+ ** Author:  Uzoma Uwanamodo
+ ** Date:    03/08/2017
+ ** Section: 05
+ ** E-mail:  uu3@umbc.edu
+ ** 
+ ** This file contains the header for the Game class.
+ ** 
+ ** 
+ ** 
+ ** 
+ *********************************************/
 
 #ifndef GAME_H
 #define GAME_H
@@ -26,65 +40,87 @@ const string DECK_NAME = "deck.txt";
 const string BOMB_NAME = "bomb.txt";
 // Seed for the pseudo random number generator
 const int RAND_SEED = 10;
-
+// Number of times to shuffle deck
+const int SHUFFLE_NUMBER = 10;
 
 class Game {
 public:
-	// Name - Constructor
-	// Desc - Runs the game
-	// Preconditions - a valid constant that holds the name of the deck file and bomb file
-	// Postconditions - Runs the game
-	Game();
-	void SetNumPlayers(int numPlayers);
+    // Name - Constructor
+    // Desc - Runs the game
+    // Preconditions - a valid constant that holds the name of the deck file and bomb file
+    // Postconditions - Runs the game
+    Game();
 private:
-	// Name - Shuffle()
-	// Desc - Shuffles the cards that are currently in the deck
-	// Preconditions - A deck with at least 1 card
-	// Postconditions - A deck with the elements shuffled in a different order
-	void Shuffle();
+    // Name - SetNumPlayers()
+    // Desc - Initializes the players
+    // Preconditions - a valid number of players
+    // Postconditions - Names and initializes the requested amount of players
+    void SetNumPlayers(int numPlayers);
 
-	// Name - Peek()
-	// Desc - The Action for the See into the future card
-	// Preconditions - A deck with at least 1 card
-	// Postconditions - Will print the next [insert const num] card(s) in the deck
-	void Peek();
+    // Name - Shuffle()
+    // Desc - Shuffles the cards that are currently in the deck
+    // Preconditions - A deck with at least 1 card
+    // Postconditions - A deck with the elements shuffled in a different order
+    void Shuffle();
 
-	// Name - DrawCard()
-	// Desc - Get the card on the top of the deck and give it to a player
-	// Preconditions - At least 1 card in the deck
-	// Postconditions - Returns and deletes the top card on the deck
-	Card DrawCard();
+    // Name - Peek()
+    // Desc - The Action for the See into the future card
+    // Preconditions - A deck with at least 1 card
+    // Postconditions - Will print the next [insert const num] card(s) in the deck
+    void Peek();
 
-	// Name - HandleCard()
-	// Desc - Handles the last card placed by the currentPlayer
-	// Preconditions - An integer number representing the currentPlayer,
-	//                 a card placed on the discard pile
-	// Postconditions - Handles the card according to their descriptions
-	int HandleCard(int);
+    // Name - DrawCard()
+    // Desc - Get the card on the top of the deck and give it to a player
+    // Preconditions - At least 1 card in the deck
+    // Postconditions - Returns and deletes the top card on the deck
+    Card DrawCard();
 
-	// Name - PlayGame()
-	// Desc - Runs the game
-	// Preconditions - A loaded deck, all players having cards
-	// Postconditions - Determine winner and print to console
-	void PlayGame();
+    // Name - HandleCard()
+    // Desc - Handles the last card placed by the currentPlayer
+    // Preconditions - An integer number representing the currentPlayer,
+    //                 a card placed on the discard pile
+    // Postconditions - Handles the card according to their descriptions
+    int HandleCard(int);
 
-	// Name - LoadDeck()
-	// Desc - Loads the cards in from a text file
-	// Preconditions - A valid filepath
-	// Postcondition - m_deck contains cards
-	int LoadDeck(string);
+    // Name - PlayGame()
+    // Desc - Runs the game
+    // Preconditions - A loaded deck, all players having cards
+    // Postconditions - Determine winner and print to console
+    void PlayGame();
 
-	// Name - AddBombCards()
-	// Desc - Loads the bomb cards in from a text file,
-	//        this must be separate due to the nature of the game
-	// Preconditions - A valid filepath, the file must contain 1 less bomb
-	//                 than the number of players
-	// Postconditions - Adds the bomb cards to m_deck
-	int AddBombCards(string);
-	int m_numPlayers;
-	Player m_players[4];
-	vector<Card> m_deck; //Vector holding available cards
-	vector<Card> m_discard; //Vector holding cards already used
+    // Name - LoadDeck()
+    // Desc - Loads the cards in from a text file
+    // Preconditions - A valid filepath
+    // Postcondition - m_deck contains cards
+    int LoadDeck(string);
+
+    // Name - AddBombCards()
+    // Desc - Loads the bomb cards in from a text file,
+    //        this must be separate due to the nature of the game
+    // Preconditions - A valid filepath, the file must contain 1 less bomb
+    //                 than the number of players
+    // Postconditions - Adds the bomb cards to m_deck
+    int AddBombCards(string);
+
+    // Name - DealPlayers()
+    // Desc - Deals the iniitial hand to all players
+    // Preconditions - A loaded deck, without the bomb cards
+    //                      initialized players
+    // Postconditions - Each player has a hand of 4 cards
+    void DealPlayers();
+
+    // Name - GetPlayer()
+    // Desc - Retrieves the player at the requested index
+    // Preconditions - A valid player number
+    // Postconditions - Returns the player
+    Player* GetPlayer(int);
+    
+
+    int m_numPlayers;
+    int m_turn;
+    Player m_players[4];
+    vector<Card> m_deck; //Vector holding available cards
+    vector<Card> m_discard; //Vector holding cards already used
 };
 
 #endif /* GAME_H */

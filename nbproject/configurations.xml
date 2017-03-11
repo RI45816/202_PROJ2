@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Card.h</itemPath>
+      <itemPath>Game.h</itemPath>
+      <itemPath>Player.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +15,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>proj2.cpp</itemPath>
+      <itemPath>Card.cpp</itemPath>
+      <itemPath>Game.cpp</itemPath>
+      <itemPath>Player.cpp</itemPath>
+      <itemPath>driver.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -36,7 +42,19 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="proj2.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="driver.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +77,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="proj2.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="driver.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
